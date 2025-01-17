@@ -11,11 +11,26 @@ function NoteCardBody({ title, createdAt, body }) {
   );
 }
 
-function NoteCard({ id, title, body, createdAt, onArchive, onDelete }) {
+function NoteCard({
+  id,
+  title,
+  body,
+  createdAt,
+  archived,
+  onArchive,
+  onDelete,
+  onUnarchive,
+}) {
   return (
     <div className="noteCard">
       <NoteCardBody title={title} createdAt={createdAt} body={body} />
-      <NoteCardButton id={id} onDelete={onDelete} onArchive={onArchive} />
+      <NoteCardButton
+        id={id}
+        onDelete={onDelete}
+        onArchive={onArchive}
+        archived={archived}
+        onUnArchive={onUnarchive}
+      />
     </div>
   );
 }

@@ -12,6 +12,18 @@ function ArchiveButton({ id, onArchive }) {
   );
 }
 
+function UnarchiveButton({ id, onUnarchive }) {
+  return (
+    <button
+      className="archive-button button"
+      id="NoteCard-Button__unArchive"
+      onClick={() => onUnarchive(id)}
+    >
+      Pindahkan
+    </button>
+  );
+}
+
 function DeleteButton({ id, onDelete }) {
   return (
     <button
@@ -24,11 +36,15 @@ function DeleteButton({ id, onDelete }) {
   );
 }
 
-function NoteCardButton({ id, onDelete, onArchive }) {
+function NoteCardButton({ id, archived, onDelete, onArchive, onUnarchive }) {
   return (
     <div className="notecard-button" id="NoteCard-Button">
       <DeleteButton id={id} onDelete={onDelete} />
-      <ArchiveButton id={id} onArchive={onArchive} />
+      {!archived ? (
+        <ArchiveButton id={id} onArchive={onArchive} />
+      ) : (
+        <UnarchiveButton id={id} onUnarchive={onUnarchive} />
+      )}
     </div>
   );
 }
