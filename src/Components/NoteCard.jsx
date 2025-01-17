@@ -29,7 +29,7 @@ function NoteCard({
         onDelete={onDelete}
         onArchive={onArchive}
         archived={archived}
-        onUnArchive={onUnarchive}
+        onUnarchive={onUnarchive}
       />
     </div>
   );
